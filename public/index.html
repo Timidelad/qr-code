@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
+
+    <style>
+.loader {    
+  --r1: 154%;
+  --r2: 68.5%;
+  width: 90px;
+  aspect-ratio: 1;
+  border-radius: 50%; 
+  background:
+    radial-gradient(var(--r1) var(--r2) at top   ,#0000 79.5%,#6984F4 80%),
+    radial-gradient(var(--r1) var(--r2) at bottom,#6984F4 79.5%,#0000 80%),
+    radial-gradient(var(--r1) var(--r2) at top   ,#0000 79.5%,#6984F4 80%),
+    #C1CBF6;
+  background-size: 50.5% 220%;
+  background-position: -100% 0%,0% 0%,100% 0%;
+  background-repeat:no-repeat;
+  animation: l9 2s infinite linear;
+}
+@keyframes l9 {
+    33%  {background-position:    0% 33% ,100% 33% ,200% 33% }
+    66%  {background-position: -100%  66%,0%   66% ,100% 66% }
+    100% {background-position:    0% 100%,100% 100%,200% 100%}
+}
+    </style>
+</head>
+<body class="bg-bgColor">
+    <div class="mx-2 my-7 md:mx-[117px] xl:mx-[365px]"> <!--container-->
+        <nav class="flex justify-between">
+            <div class="text-black font-myFont text-sm bg-activeColor p-4 font-bold rounded-[8px] cursor-pointer hover:shadow-xl md:text-[20px]" id="getBtn">Get Your QR-Code</div>
+            <div class="text-black font-myFont text-sm bg-inActiveColor p-4 font-bold rounded-[8px] cursor-pointer hover:shadow-xl md:text-[20px]" id="scanBtn">Scan Your QR-Code</div>
+        </nav>
+
+        <div class="mt-20" id="getSection">
+
+            <div>
+                <div class="flex flex-col gap-y-3">
+                    <div><input type="text" id="qr-input" class="p-[10px] w-[280px] rounded-[8px] placeholder:text-[14px] placeholder:font-normal placeholder:text-inputColor border border-activeColor focus:border-activeColor focus:accent-activeColor bg-inputBg md:w-[424px]" placeholder="Input Your Link"></div>
+                    <div class="text-black font-myFont text-sm bg-activeColor p-4 font-bold rounded-[8px] cursor-pointer hover:shadow-xl md:text-[20px] w-[145px] h-[48px] text-center" id="generateBtn" >Generate</div>
+                </div>
+            </div>
+            
+            <div class="mt-[50px] flex flex-col items-center gap-y-[20px]">
+                <div class="loader hidden" id="loader"></div>
+                <div id="qr-code"></div>
+                <div class="hidden" id="download-container">
+                    <div class="flex items-center gap-x-[10px] text-black font-myFont text-sm bg-activeColor p-4 font-bold rounded-[8px] cursor-pointer hover:shadow-xl md:text-[20px] w-[127px] h-[48px] " id="downloadBtn">
+                        <div>Download</div>
+                        <div><img src="./images/download-icon.png" class="w-[16px] h-[16px]" alt=""></div>
+                    </div>
+                </div>
+                <img src="./images/share-icon.png" class="h-[35px] w-[35px] hidden" id="share" alt="">
+            </div>
+            
+        </div>
+
+        <!-- <div class="loader"></div> -->
+
+        <div class="mt-20 hidden" id="scanSection">
+
+            <div class="flex flex-col gap-y-[10px]">
+                <div class="w-[185px] h-[54px] flex items-center gap-x-[10px] text-black font-myFont text-sm bg-activeColor p-4 font-bold rounded-[8px] cursor-pointer hover:shadow-xl md:text-[20px] md:w-[230px] md:h-[57px]">
+                    <div class="">Scan With Camera</div>
+                    <img src="./images/Camera-icon.png" class="h-[22px] w-[22px]" alt="">
+                </div>
+                <div class="w-[158px] h-[54px] flex items-center gap-x-[10px] text-black font-myFont text-sm bg-activeColor p-4 font-bold rounded-[8px] cursor-pointer hover:shadow-xl md:text-[20px] md:w-[200px] md:h-[57px]">
+                    <div>Upload Image</div>
+                    <img src="./images/upload-icon.png" class="h-[18px] w-[22px]" alt="">
+                </div>
+            </div>
+            
+            <div class="mt-[50px] flex flex-col gap-y-[10px] items-center">
+                <div class="w-[200px] h-[200px] bg-imgContainer rounded-[16px] "></div>
+                <div class="flex items-center gap-x-1">
+                    <input type="text" class="p-[10px] w-[280px] rounded-[8px] placeholder:text-[14px] placeholder:font-normal placeholder:text-inputColor border border-activeColor focus:border-activeColor focus:accent-activeColor bg-inputBg md:w-[424px]">
+                    <img src="./images/Copy-icon.png" class="w-[35px] h-[35px]" alt="">
+                </div>
+            </div>
+            
+            </div>
+       
+    </div>
+    <script src="./index.js"></script>
+</body>
+</html>
